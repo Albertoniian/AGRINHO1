@@ -75,7 +75,24 @@
         </div>
     </nav>
 
-    <audio id="somClick" src="estralo.mp3" preload="auto"></audio>
+    <audio id="musica" autoplay loop playsinline>
+  <source src="Music (online-audio-converter.com).mp3" type="audio/mpeg" />
+  Seu navegador não suporta áudio.
+</audio>
+
+<script>
+  const musica = document.getElementById('musica');
+  
+  // Força a tocar o áudio (mesmo que bloqueie, tenta)
+  musica.volume = 0.5;
+  musica.play().catch(e => {
+    console.log('Autoplay bloqueado, sem som até interação.');
+  });
+</script>
+
+
+
+  <audio id="somClick" src="estralo.mp3" preload="auto"></audio>
 
   <script>
     const som = document.getElementById("somClick");
@@ -89,6 +106,39 @@
       });
     });
   </script>
+
+  <button id="muteBtn" aria-label="Mutar som" 
+  style="
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: white;
+    background-color: green;
+    transition: background-color 0.3s ease;
+  ">
+  🔊
+</button>
+
+<script>
+  const btn = document.getElementById('muteBtn');
+
+  btn.addEventListener('click', () => {
+    const medias = document.querySelectorAll('audio, video');
+    const isMuted = medias.length > 0 ? medias[0].muted : false;
+
+    medias.forEach(media => {
+      media.muted = !isMuted;
+    });
+
+    btn.textContent = !isMuted ? '🔇' : '🔊';
+    btn.style.backgroundColor = !isMuted ? 'red' : 'green';
+  });
+</script>
 
     <!-- Conteúdo Principal -->
     <div class="container my-5">
