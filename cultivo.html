@@ -95,14 +95,14 @@
 
 
 
-  <audio id="somClick" src="estralo.mp3" preload="auto"></audio>
+  <audio id="somClick" src="Ian (online-audio-converter.com).mp3" preload="auto"></audio>
 
   <script>
     const som = document.getElementById("somClick");
 
     document.addEventListener("click", () => {
       som.pause();
-      som.currentTime = 0;
+      som.currentTime = 2;
       som.playbackRate = 2; // <-- aqui aumenta a velocidade
       som.play().catch((e) => {
         console.log("Erro ao tocar o som:", e);
