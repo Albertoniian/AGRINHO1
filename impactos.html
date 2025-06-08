@@ -92,7 +92,7 @@ background-color: rgb(18, 19, 19);
   const musica = document.getElementById('musica');
   
   // Força a tocar o áudio (mesmo que bloqueie, tenta)
-  musica.volume = 2.5;
+  musica.volume = 5;
   musica.play().catch(e => {
     console.log('Autoplay bloqueado, sem som até interação.');
   });
